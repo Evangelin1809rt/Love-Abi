@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Evangelin ❤️ Abi</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing:content-box;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background:linear-gradient(to bottom,rgb(203, 170, 234),pink);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: black;
+}
+
+/* Glass Card */
+.card {
+  background: beige;
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  width: 320px;
+  box-shadow: 0 0 40px rgba(255, 105, 180, 0.3);
+  animation: fadeIn 2s ease;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.names {
+  font-size: 1.4rem;
+  color:slateblue;
+  margin-bottom: 10px;
+}
+
+.date {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+#message {
+  min-height: 50px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background: #ff6fa5;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #ff3e88;
+}
+
+/* Floating glow hearts */
+.heart {
+  position: absolute;
+  color: #ff6fa5;
+  font-size: 18px;
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.9);}
+  to {opacity: 1; transform: scale(1);}
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Still choosing You 🖤</h1>
+  <div class="names">Evangelin ♡ Abi</div>
+  <div class="date">Since Dec-06 </div>
+
+  <div id="message"></div>
+
+  <button onclick="startLove()">Tap here 💌</button>
+</div>
+
+<script>
+const loveText = "Abi... I just want you to be safe, healthy here 🎀.. Maybe not so much Alcohol🥂Try letting go of Smoking.. atleast one habit.. for me!🫶🏻 once in a while is okay Babe but no often 🫂Stay with me long time nd I Lovee youu💋🖤";
+
+let i = 0;
+
+function startLove() {
+  document.getElementById("message").innerHTML = "";
+  i = 0;
+  typeWriter();
+  hearts();
+}
+
+function typeWriter() {
+  if (i < loveText.length) {
+    document.getElementById("message").innerHTML += loveText.charAt(i);
+    i++;
+    setTimeout(typeWriter, 90);
+  }
+}
+
+function hearts() {
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💋";
+    heart.style.left = Math.random() * 150 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 6000);
+  }, 300);
+}
+</script>
+
+</body>
+</html>
